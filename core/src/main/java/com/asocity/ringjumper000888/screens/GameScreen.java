@@ -183,6 +183,7 @@ public class GameScreen implements Screen {
         // Star icon (PNG) + count label
         Image starIcon = new Image(game.manager.get("ui/buttons/star.png", Texture.class));
         starIcon.setSize(26f, 26f);
+        starIcon.setColor(1f, 0.85f, 0.15f, 1f); // yellow tint to match collectibles
         starIcon.setPosition(16f, 754f);
         stage.addActor(starIcon);
         starsLabel = new Label("0", new Label.LabelStyle(game.fontBody, Color.WHITE));
@@ -410,10 +411,16 @@ public class GameScreen implements Screen {
     }
 
     private void drawDebrisAndStars() {
+        // Debris: ShapeRenderer
         sr.begin(ShapeType.Filled);
         for (DebrisField f : debrisFields) f.draw(sr);
-        for (StarCollectible s : stars)       s.draw(sr);
         sr.end();
+        // Stars: SpriteBatch with star.png sprite
+        Texture starTex = game.manager.get("ui/buttons/star.png", Texture.class);
+        game.batch.setProjectionMatrix(camera.combined);
+        game.batch.begin();
+        for (StarCollectible s : stars) s.draw(game.batch, starTex);
+        game.batch.end();
     }
 
     private void drawPod(float scale) {

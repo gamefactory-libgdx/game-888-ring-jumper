@@ -1,5 +1,7 @@
 package com.asocity.ringjumper000888;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 
@@ -64,14 +66,13 @@ public class StarCollectible {
 
     // ── Rendering ─────────────────────────────────────────────────────────────
 
-    /** Draw using ShapeRenderer in FILLED mode (already begun). */
-    public void draw(ShapeRenderer sr) {
-        sr.setColor(1f, 0.85f, 0.15f, alpha);
-        float s = Constants.STAR_SIZE;
+    /** Draw using SpriteBatch with star.png texture. */
+    public void draw(SpriteBatch batch, Texture starTex) {
+        float s = Constants.STAR_SIZE * 1.4f; // slightly larger than collision radius
         float cx = worldX();
         float cy = worldY();
-        // Diamond shape as visual stand-in for a star
-        sr.triangle(cx, cy + s * 0.5f, cx + s * 0.4f, cy - s * 0.25f, cx - s * 0.4f, cy - s * 0.25f);
-        sr.triangle(cx, cy - s * 0.5f, cx + s * 0.4f, cy + s * 0.25f, cx - s * 0.4f, cy + s * 0.25f);
+        batch.setColor(1f, 0.85f, 0.15f, alpha); // yellow
+        batch.draw(starTex, cx - s * 0.5f, cy - s * 0.5f, s, s);
+        batch.setColor(1f, 1f, 1f, 1f);
     }
 }

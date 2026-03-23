@@ -114,16 +114,18 @@ public class ShopScreen implements Screen {
 
         // Star balance: top-Y=36, h=40, x=right@20 → libgdxY = 778, x = 480-140-20 = 320
         // Star icon + balance
+        // Star balance: icon then number, tight together at top-right
+        final Label starLabel = new Label(String.valueOf(game.starBalance), starStyle);
+        starLabel.setSize(70f, 40f);
+        starLabel.setPosition(Constants.WORLD_WIDTH - 70f - 16f, 778f);
+        starLabel.setName("starLabel");
+        starLabel.setAlignment(Align.left);
+        stage.addActor(starLabel);
         Image starIconShop = new Image(game.manager.get("ui/buttons/star.png", Texture.class));
         starIconShop.setSize(26f, 26f);
-        starIconShop.setPosition(Constants.WORLD_WIDTH - 140f - 20f, 780f);
+        starIconShop.setColor(1f, 0.85f, 0.15f, 1f); // yellow tint
+        starIconShop.setPosition(Constants.WORLD_WIDTH - 70f - 16f - 30f, 780f);
         stage.addActor(starIconShop);
-        final Label starLabel = new Label(String.valueOf(game.starBalance), starStyle);
-        starLabel.setSize(110f, 40f);
-        starLabel.setPosition(Constants.WORLD_WIDTH - 110f - 20f, 778f);
-        starLabel.setName("starLabel");
-        starLabel.setAlignment(Align.right);
-        stage.addActor(starLabel);
 
         // Card hit areas
         for (int i = 0; i < Constants.SKIN_COUNT; i++) {
@@ -141,7 +143,7 @@ public class ShopScreen implements Screen {
 
         // SELECT/EQUIP/BUY action button: top-Y=560, h=52 → libgdxY = 242
         actionBtn = UiFactory.makeCentredButton(actionLabel(), btnStyle,
-                260f, 52f, 172f);
+                260f, 52f, 162f);
         actionBtn.addListener(new ChangeListener() {
             @Override public void changed(ChangeEvent e, Actor a) {
                 onActionTapped(starLabel);
@@ -296,10 +298,12 @@ public class ShopScreen implements Screen {
         game.batch.draw(tex, spriteX, spriteY, spriteSize, spriteSize);
         game.batch.setColor(Color.WHITE);
 
-        // Skin name
+        // Skin name — smaller scale to avoid overflow
         game.fontSmall.setColor(Color.WHITE);
+        game.fontSmall.getData().setScale(0.62f);
         game.fontSmall.draw(game.batch, SKIN_NAMES[i],
                 cx, cy + 50f, CARD_W, Align.center, false);
+        game.fontSmall.getData().setScale(1f);
 
         // Status / price
         if (equipped) {
