@@ -95,12 +95,14 @@ public class DebrisField {
 
     /** Draw chunks. ShapeRenderer must be in FILLED mode and already begun. */
     public void draw(ShapeRenderer sr) {
-        float s = Constants.DEBRIS_CHUNK_SIZE;
-        sr.setColor(0.85f, 0.42f, 0.10f, 1f); // orange-amber
+        float r = Constants.DEBRIS_CHUNK_RADIUS;
         for (int i = 0; i < chunkCount; i++) {
             float cx = chunkX(i);
             float cy = chunkY(i);
-            sr.rect(cx - s * 0.5f, cy - s * 0.5f, s, s);
+            // Vary color slightly per chunk for asteroid look
+            float t = chunks[i].relativeAngle / 360f;
+            sr.setColor(0.55f + 0.15f * t, 0.55f + 0.10f * t, 0.50f + 0.10f * t, 1f);
+            sr.circle(cx, cy, r, 10);
         }
     }
 }

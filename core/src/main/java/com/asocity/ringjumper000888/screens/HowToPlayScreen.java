@@ -29,7 +29,7 @@ public class HowToPlayScreen implements Screen {
     // Panel 1: top-Y=110, h=130 → libgdxY = 854-110-130 = 614
     // Panel 2: top-Y=260, h=130 → libgdxY = 854-260-130 = 464
     // Panel 3: top-Y=410, h=130 → libgdxY = 854-410-130 = 314
-    private static final float[] PANEL_Y = {614f, 464f, 314f};
+    private static final float[] PANEL_Y = {626f, 457f, 279f};
     private static final float PANEL_W   = 340f;
     private static final float PANEL_H   = 130f;
 

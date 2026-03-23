@@ -54,7 +54,7 @@ public class ShopScreen implements Screen {
     private static final float CARD_W = 130f;
     private static final float CARD_H = 160f;
     private static final float[] CARD_X = {24f, 175f, 326f, 24f, 175f, 326f};
-    private static final float[] CARD_Y = {534f, 534f, 534f, 354f, 354f, 354f};
+    private static final float[] CARD_Y = {494f, 494f, 494f, 314f, 314f, 314f};
 
     private final MainGame game;
     private final boolean  fromGameOver;
@@ -100,7 +100,7 @@ public class ShopScreen implements Screen {
 
     private void buildUi() {
         Label.LabelStyle titleStyle = new Label.LabelStyle(game.fontTitle, Color.WHITE);
-        Label.LabelStyle starStyle  = new Label.LabelStyle(game.fontBody,
+        Label.LabelStyle starStyle  = new Label.LabelStyle(game.fontIcon,
                 new Color(1f, 0.85f, 0.15f, 1f));
         TextButton.TextButtonStyle btnStyle = UiFactory.makeRectStyle(game.manager, game.fontBody);
 
@@ -135,7 +135,7 @@ public class ShopScreen implements Screen {
 
         // SELECT/EQUIP/BUY action button: top-Y=560, h=52 → libgdxY = 242
         actionBtn = UiFactory.makeCentredButton(actionLabel(), btnStyle,
-                260f, 52f, 242f);
+                260f, 52f, 202f);
         actionBtn.addListener(new ChangeListener() {
             @Override public void changed(ChangeEvent e, Actor a) {
                 onActionTapped(starLabel);
@@ -282,7 +282,7 @@ public class ShopScreen implements Screen {
 
         // Ship sprite (centered in upper ~70% of card)
         Texture tex = game.manager.get(SKIN_TEX[i], Texture.class);
-        float spriteSize = 70f;
+        float spriteSize = 52f;
         float spriteX = cx + (CARD_W - spriteSize) / 2f;
         float spriteY = cy + CARD_H * 0.35f;
         float alpha = owned ? 1.0f : 0.45f;
@@ -293,7 +293,7 @@ public class ShopScreen implements Screen {
         // Skin name
         game.fontSmall.setColor(Color.WHITE);
         game.fontSmall.draw(game.batch, SKIN_NAMES[i],
-                cx, cy + 56f, CARD_W, Align.center, false);
+                cx, cy + 50f, CARD_W, Align.center, false);
 
         // Status / price
         if (equipped) {
