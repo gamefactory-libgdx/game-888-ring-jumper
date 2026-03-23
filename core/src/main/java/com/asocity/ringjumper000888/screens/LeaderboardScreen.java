@@ -155,7 +155,7 @@ public class LeaderboardScreen implements Screen {
             Label rankLabel = new Label(rankText, rankStyle);
             rankLabel.setSize(80f, ROW_H);
             rankLabel.setAlignment(Align.center);
-            rankLabel.setPosition(30f, y);
+            rankLabel.setPosition(90f, y);
             stage.addActor(rankLabel);
 
             // Score value (right side)
@@ -163,7 +163,7 @@ public class LeaderboardScreen implements Screen {
             Label scoreLabel = new Label(scoreText, (i < 3) ? goldStyle : bodyStyle);
             scoreLabel.setSize(240f, ROW_H);
             scoreLabel.setAlignment(Align.left);
-            scoreLabel.setPosition(115f, y);
+            scoreLabel.setPosition(175f, y);
             stage.addActor(scoreLabel);
         }
 

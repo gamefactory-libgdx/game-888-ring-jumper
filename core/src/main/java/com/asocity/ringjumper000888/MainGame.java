@@ -128,6 +128,8 @@ public class MainGame extends Game {
         manager.load("sounds/sfx/sfx_power_up.ogg",       Sound.class);
 
         // UI buttons
+        manager.load("ui/buttons/star.png",         com.badlogic.gdx.graphics.Texture.class);
+        manager.load("ui/buttons/star_outline.png",  com.badlogic.gdx.graphics.Texture.class);
         manager.load("ui/buttons/button_rectangle_depth_gradient.png",
                 com.badlogic.gdx.graphics.Texture.class);
         manager.load("ui/buttons/button_rectangle_depth_flat.png",

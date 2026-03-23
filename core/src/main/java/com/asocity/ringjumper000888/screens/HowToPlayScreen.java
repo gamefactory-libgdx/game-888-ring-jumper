@@ -96,7 +96,7 @@ public class HowToPlayScreen implements Screen {
         // "Tap anywhere" hint: top-Y=620, h=44 → libgdxY = 190
         Label hint = new Label("← Tap BACK or the button below to return →", bodyStyle);
         hint.setSize(440f, 44f);
-        hint.setPosition((Constants.WORLD_WIDTH - 440f) / 2f, 190f);
+        hint.setPosition((Constants.WORLD_WIDTH - 440f) / 2f, 185f);
         hint.setAlignment(Align.center);
         stage.addActor(hint);
 
