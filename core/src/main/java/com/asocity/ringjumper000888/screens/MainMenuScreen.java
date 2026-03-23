@@ -60,6 +60,7 @@ public class MainMenuScreen implements Screen {
     private void buildUI() {
         TextButton.TextButtonStyle rectStyle  = UiFactory.makeRectStyle(game.manager, game.fontBody);
         TextButton.TextButtonStyle roundStyle = UiFactory.makeRoundStyle(game.manager, game.fontBody);
+        TextButton.TextButtonStyle roundIconStyle = UiFactory.makeRoundStyle(game.manager, game.fontIcon);
 
         // Title label
         // Figma: topY=80, h=60 → libgdxY = 854 - 80 - 60 = 714
@@ -120,7 +121,7 @@ public class MainMenuScreen implements Screen {
 
         // SETTINGS (round icon, bottom-right)
         // Figma: topY=790, x=right@20, size=56x56 → x=404, libgdxY=8
-        TextButton settingsBtn = UiFactory.makeButton("S", roundStyle, BTN_ICON_SZ, BTN_ICON_SZ);
+        TextButton settingsBtn = UiFactory.makeButton("⚙", roundIconStyle, BTN_ICON_SZ, BTN_ICON_SZ);
         settingsBtn.setPosition(Constants.WORLD_WIDTH - 20f - BTN_ICON_SZ, 8f);
         settingsBtn.addListener(new ChangeListener() {
             @Override public void changed(ChangeEvent event, Actor actor) {

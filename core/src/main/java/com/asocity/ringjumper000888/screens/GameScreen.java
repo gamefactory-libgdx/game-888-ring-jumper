@@ -174,15 +174,16 @@ public class GameScreen implements Screen {
         // Score label: top-Y=24, h=40 → libgdxY = 790, centered
         scoreLabel = new Label("0", scoreStyle);
         scoreLabel.setSize(200f, 50f);
-        scoreLabel.setPosition((Constants.WORLD_WIDTH - 200f) / 2f, 790f);
-        scoreLabel.setAlignment(Align.center);
+        scoreLabel.setPosition(16f, 790f);
+        scoreLabel.setAlignment(Align.left);
         stage.addActor(scoreLabel);
 
         // Stars collected: top-Y=68, h=32 → libgdxY = 754, centered
-        starsLabel = new Label("\u2605 0", hudStyle);
+        Label.LabelStyle iconStyle = new Label.LabelStyle(game.fontIcon, Color.WHITE);
+        starsLabel = new Label("\u2605 0", iconStyle);
         starsLabel.setSize(160f, 32f);
-        starsLabel.setPosition((Constants.WORLD_WIDTH - 160f) / 2f, 754f);
-        starsLabel.setAlignment(Align.center);
+        starsLabel.setPosition(16f, 752f);
+        starsLabel.setAlignment(Align.left);
         stage.addActor(starsLabel);
 
         // Pause button: top-Y=20, h=52, x=right@16 → libgdxY = 782, x = 480-52-16 = 412
@@ -232,8 +233,6 @@ public class GameScreen implements Screen {
         } else if (newRing > Constants.RING_COUNT) {
             newRing = Constants.RING_COUNT;
             jumpDirection = -1;
-        } else {
-            jumpDirection = -jumpDirection;
         }
         podRing = newRing;
         if (game.sfxEnabled)
@@ -367,7 +366,7 @@ public class GameScreen implements Screen {
             game.manager.get("sounds/sfx/sfx_hit.ogg", Sound.class).play(1f);
         if (game.sfxEnabled)
             game.manager.get("sounds/sfx/sfx_game_over.ogg", Sound.class).play(0.8f);
-        if (game.vibrationEnabled) Gdx.input.vibrate(60);
+        if (game.vibrationEnabled) { try { Gdx.input.vibrate(60); } catch (Exception e) { /* ignore */ } }
     }
 
     private void onStarCollected(int index) {
@@ -380,7 +379,7 @@ public class GameScreen implements Screen {
         stars.removeIndex(index);
         if (game.sfxEnabled)
             game.manager.get("sounds/sfx/sfx_coin.ogg", Sound.class).play(1f);
-        if (game.vibrationEnabled) Gdx.input.vibrate(20);
+        if (game.vibrationEnabled) { try { Gdx.input.vibrate(20); } catch (Exception e) { /* ignore */ } }
     }
 
     private void checkWorldUnlocks() {

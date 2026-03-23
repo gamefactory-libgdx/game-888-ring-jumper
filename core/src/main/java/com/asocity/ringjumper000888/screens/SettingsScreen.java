@@ -26,8 +26,8 @@ public class SettingsScreen implements Screen {
     private static final String BG = "ui/settings_screen.png";
 
     // Toggle button size (pill-style)
-    private static final float TOG_W = 100f;
-    private static final float TOG_H = 44f;
+    private static final float TOG_W = 80f;
+    private static final float TOG_H = 36f;
     // Row label size
     private static final float ROW_W = 220f;
     private static final float ROW_H = 48f;
@@ -83,12 +83,14 @@ public class SettingsScreen implements Screen {
 
         Label soundLabel = new Label("SOUND", bodyStyle);
         soundLabel.setSize(ROW_W, ROW_H);
-        soundLabel.setPosition(60f, soundY);
+        soundLabel.setFontScale(0.82f);
+        soundLabel.setPosition(100f, soundY);
         stage.addActor(soundLabel);
 
         soundToggle = new TextButton(game.sfxEnabled ? "ON" : "OFF", rectStyle);
         soundToggle.setSize(TOG_W, TOG_H);
-        soundToggle.setPosition(Constants.WORLD_WIDTH - 40f - TOG_W, soundTogY);
+        soundToggle.getLabel().setFontScale(0.75f);
+        soundToggle.setPosition(Constants.WORLD_WIDTH - 130f - TOG_W, soundTogY);
         soundToggle.addListener(new ChangeListener() {
             @Override public void changed(ChangeEvent event, Actor actor) {
                 game.sfxEnabled = !game.sfxEnabled;
@@ -107,12 +109,14 @@ public class SettingsScreen implements Screen {
 
         Label musicLabel = new Label("MUSIC", bodyStyle);
         musicLabel.setSize(ROW_W, ROW_H);
-        musicLabel.setPosition(60f, musicY);
+        musicLabel.setFontScale(0.82f);
+        musicLabel.setPosition(100f, musicY);
         stage.addActor(musicLabel);
 
         musicToggle = new TextButton(game.musicEnabled ? "ON" : "OFF", rectStyle);
         musicToggle.setSize(TOG_W, TOG_H);
-        musicToggle.setPosition(Constants.WORLD_WIDTH - 40f - TOG_W, musicTogY);
+        musicToggle.getLabel().setFontScale(0.75f);
+        musicToggle.setPosition(Constants.WORLD_WIDTH - 130f - TOG_W, musicTogY);
         musicToggle.addListener(new ChangeListener() {
             @Override public void changed(ChangeEvent event, Actor actor) {
                 game.musicEnabled = !game.musicEnabled;
@@ -135,12 +139,14 @@ public class SettingsScreen implements Screen {
 
         Label vibLabel = new Label("VIBRATION", bodyStyle);
         vibLabel.setSize(ROW_W, ROW_H);
-        vibLabel.setPosition(60f, vibY);
+        vibLabel.setFontScale(0.82f);
+        vibLabel.setPosition(100f, vibY);
         stage.addActor(vibLabel);
 
         vibToggle = new TextButton(game.vibrationEnabled ? "ON" : "OFF", rectStyle);
         vibToggle.setSize(TOG_W, TOG_H);
-        vibToggle.setPosition(Constants.WORLD_WIDTH - 40f - TOG_W, vibTogY);
+        vibToggle.getLabel().setFontScale(0.75f);
+        vibToggle.setPosition(Constants.WORLD_WIDTH - 130f - TOG_W, vibTogY);
         vibToggle.addListener(new ChangeListener() {
             @Override public void changed(ChangeEvent event, Actor actor) {
                 game.vibrationEnabled = !game.vibrationEnabled;

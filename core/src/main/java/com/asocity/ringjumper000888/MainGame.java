@@ -27,6 +27,7 @@ public class MainGame extends Game {
     public BitmapFont fontBody;
     /** Small labels — Orbitron-Regular.ttf smaller */
     public BitmapFont fontSmall;
+    public BitmapFont fontIcon;  // Roboto with gear+star glyphs
     /** Large score display — HydrogenWhiskey.otf large */
     public BitmapFont fontScore;
 
@@ -93,6 +94,15 @@ public class MainGame extends Game {
         p.borderColor = new Color(0f, 0f, 0f, 0.85f);
         fontSmall = bodyGen.generateFont(p);
 
+        // fontIcon - 24pt Roboto with special symbols
+        FreeTypeFontGenerator iconGen = new FreeTypeFontGenerator(
+                Gdx.files.internal("fonts/Roboto-Regular.ttf"));
+        p.size        = 24;
+        p.borderWidth = 1;
+        p.borderColor = new Color(0f, 0f, 0f, 0.85f);
+        p.characters  = FreeTypeFontGenerator.DEFAULT_CHARS + "⚙★";
+        fontIcon = iconGen.generateFont(p);
+        iconGen.dispose();
         titleGen.dispose();
         bodyGen.dispose();
     }
@@ -194,6 +204,7 @@ public class MainGame extends Game {
         manager.dispose();
         fontTitle.dispose();
         fontBody.dispose();
+        if (fontIcon != null) fontIcon.dispose();
         fontSmall.dispose();
         fontScore.dispose();
     }
