@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
@@ -112,9 +113,14 @@ public class ShopScreen implements Screen {
         stage.addActor(title);
 
         // Star balance: top-Y=36, h=40, x=right@20 → libgdxY = 778, x = 480-140-20 = 320
-        final Label starLabel = new Label("* " + game.starBalance, starStyle);
-        starLabel.setSize(140f, 40f);
-        starLabel.setPosition(Constants.WORLD_WIDTH - 140f - 20f, 778f);
+        // Star icon + balance
+        Image starIconShop = new Image(game.manager.get("ui/buttons/star.png", Texture.class));
+        starIconShop.setSize(26f, 26f);
+        starIconShop.setPosition(Constants.WORLD_WIDTH - 140f - 20f, 780f);
+        stage.addActor(starIconShop);
+        final Label starLabel = new Label(String.valueOf(game.starBalance), starStyle);
+        starLabel.setSize(110f, 40f);
+        starLabel.setPosition(Constants.WORLD_WIDTH - 110f - 20f, 778f);
         starLabel.setName("starLabel");
         starLabel.setAlignment(Align.right);
         stage.addActor(starLabel);
@@ -178,7 +184,7 @@ public class ShopScreen implements Screen {
                 game.ownedSkins  |= (1 << selectedSkin);
                 game.equippedSkin = selectedSkin;
                 game.savePrefs();
-                starLabel.setText("\u2605 " + game.starBalance);
+                starLabel.setText(String.valueOf(game.starBalance));
                 showToast("PURCHASED! " + SKIN_NAMES[selectedSkin]);
                 if (game.sfxEnabled)
                     game.manager.get("sounds/sfx/sfx_level_complete.ogg", Sound.class).play(1f);

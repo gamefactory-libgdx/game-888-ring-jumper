@@ -15,6 +15,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
@@ -179,10 +180,14 @@ public class GameScreen implements Screen {
         stage.addActor(scoreLabel);
 
         // Stars collected: top-Y=68, h=32 → libgdxY = 754, centered
-        Label.LabelStyle iconStyle = new Label.LabelStyle(game.fontIcon, Color.WHITE);
-        starsLabel = new Label("* 0", iconStyle);
-        starsLabel.setSize(160f, 32f);
-        starsLabel.setPosition(16f, 752f);
+        // Star icon (PNG) + count label
+        Image starIcon = new Image(game.manager.get("ui/buttons/star.png", Texture.class));
+        starIcon.setSize(26f, 26f);
+        starIcon.setPosition(16f, 754f);
+        stage.addActor(starIcon);
+        starsLabel = new Label("0", new Label.LabelStyle(game.fontBody, Color.WHITE));
+        starsLabel.setSize(100f, 32f);
+        starsLabel.setPosition(46f, 752f);
         starsLabel.setAlignment(Align.left);
         stage.addActor(starsLabel);
 
@@ -456,7 +461,7 @@ public class GameScreen implements Screen {
 
         // Update HUD labels
         scoreLabel.setText(String.valueOf(score));
-        starsLabel.setText("* " + starsThisRun);
+        starsLabel.setText(String.valueOf(starsThisRun));
 
         // ── Render ────────────────────────────────────────────────────────────
         Gdx.gl.glClearColor(0f, 0.02f, 0.05f, 1f);
