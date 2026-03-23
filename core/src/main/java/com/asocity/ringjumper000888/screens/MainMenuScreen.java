@@ -129,6 +129,7 @@ public class MainMenuScreen implements Screen {
                 game.setScreen(new SettingsScreen(game));
             }
         });
+        settingsBtn.getLabel().setColor(0.05f, 0.05f, 0.05f, 1f); // dark so ⚙ visible
         stage.addActor(settingsBtn);
     }
 

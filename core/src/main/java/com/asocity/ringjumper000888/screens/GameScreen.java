@@ -180,7 +180,7 @@ public class GameScreen implements Screen {
 
         // Stars collected: top-Y=68, h=32 → libgdxY = 754, centered
         Label.LabelStyle iconStyle = new Label.LabelStyle(game.fontIcon, Color.WHITE);
-        starsLabel = new Label("\u2605 0", iconStyle);
+        starsLabel = new Label("* 0", iconStyle);
         starsLabel.setSize(160f, 32f);
         starsLabel.setPosition(16f, 752f);
         starsLabel.setAlignment(Align.left);
@@ -456,7 +456,7 @@ public class GameScreen implements Screen {
 
         // Update HUD labels
         scoreLabel.setText(String.valueOf(score));
-        starsLabel.setText("\u2605 " + starsThisRun);
+        starsLabel.setText("* " + starsThisRun);
 
         // ── Render ────────────────────────────────────────────────────────────
         Gdx.gl.glClearColor(0f, 0.02f, 0.05f, 1f);

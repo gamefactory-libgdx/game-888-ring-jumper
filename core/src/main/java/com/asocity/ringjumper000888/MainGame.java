@@ -94,14 +94,15 @@ public class MainGame extends Game {
         p.borderColor = new Color(0f, 0f, 0f, 0.85f);
         fontSmall = bodyGen.generateFont(p);
 
-        // fontIcon - 24pt Roboto with special symbols
+        // fontIcon - fresh param, Roboto with special symbols
         FreeTypeFontGenerator iconGen = new FreeTypeFontGenerator(
                 Gdx.files.internal("fonts/Roboto-Regular.ttf"));
-        p.size        = 24;
-        p.borderWidth = 1;
-        p.borderColor = new Color(0f, 0f, 0f, 0.85f);
-        p.characters  = FreeTypeFontGenerator.DEFAULT_CHARS + "⚙★";
-        fontIcon = iconGen.generateFont(p);
+        FreeTypeFontParameter iconP = new FreeTypeFontParameter();
+        iconP.size = 28;
+        iconP.borderWidth = 1;
+        iconP.borderColor = new Color(0f, 0f, 0f, 0.85f);
+        iconP.characters = FreeTypeFontGenerator.DEFAULT_CHARS + "⚙★";
+        fontIcon = iconGen.generateFont(iconP);
         iconGen.dispose();
         titleGen.dispose();
         bodyGen.dispose();

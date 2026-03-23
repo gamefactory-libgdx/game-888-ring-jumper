@@ -112,7 +112,7 @@ public class ShopScreen implements Screen {
         stage.addActor(title);
 
         // Star balance: top-Y=36, h=40, x=right@20 → libgdxY = 778, x = 480-140-20 = 320
-        final Label starLabel = new Label("\u2605 " + game.starBalance, starStyle);
+        final Label starLabel = new Label("* " + game.starBalance, starStyle);
         starLabel.setSize(140f, 40f);
         starLabel.setPosition(Constants.WORLD_WIDTH - 140f - 20f, 778f);
         starLabel.setName("starLabel");
@@ -135,7 +135,7 @@ public class ShopScreen implements Screen {
 
         // SELECT/EQUIP/BUY action button: top-Y=560, h=52 → libgdxY = 242
         actionBtn = UiFactory.makeCentredButton(actionLabel(), btnStyle,
-                260f, 52f, 202f);
+                260f, 52f, 172f);
         actionBtn.addListener(new ChangeListener() {
             @Override public void changed(ChangeEvent e, Actor a) {
                 onActionTapped(starLabel);
