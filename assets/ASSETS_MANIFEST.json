@@ -1,0 +1,60 @@
+{
+  "archetype": "orbit-dash",
+  "selection": {
+    "sprites/vehicle": {
+      "pack": "craftpix-spaceship-2d-game-sprites",
+      "source": "craftpix",
+      "path": "characters/space/craftpix-spaceship-2d-game-sprites",
+      "type": "vehicle",
+      "theme": [
+        "space",
+        "sci-fi"
+      ],
+      "png_count": 5
+    },
+    "sprites/ui": {
+      "pack": "monster-builder-pack",
+      "source": "kenney",
+      "path": "enemies/generic/monster-builder-pack",
+      "type": "ui",
+      "theme": [
+        "generic"
+      ],
+      "png_count": 178
+    },
+    "backgrounds/menu": {
+      "pack": "free-pirate-bay-tileset-pixel-art-for-cyberpunk",
+      "source": "craftpix",
+      "path": "tilesets/side/ocean/free-pirate-bay-tileset-pixel-art-for-cyberpunk",
+      "type": "background",
+      "theme": [
+        "ocean",
+        "pirate",
+        "sci-fi"
+      ],
+      "png_count": 62
+    },
+    "backgrounds/game": {
+      "pack": "free-factory-pixel-art-32x32-tileset-for-cyberpunk",
+      "source": "craftpix",
+      "path": "tilesets/side/city/free-factory-pixel-art-32x32-tileset-for-cyberpunk",
+      "type": "background",
+      "theme": [
+        "cyberpunk",
+        "sci-fi"
+      ],
+      "png_count": 75
+    }
+  },
+  "buttons": {
+    "color": "Blue",
+    "files": [
+      "button_rectangle_depth_gradient.png",
+      "button_rectangle_depth_flat.png",
+      "button_round_depth_gradient.png",
+      "button_round_depth_flat.png",
+      "star.png",
+      "star_outline.png"
+    ]
+  }
+}

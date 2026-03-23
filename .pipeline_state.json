@@ -1,0 +1,34 @@
+{
+  "title": "Ring Jumper",
+  "orientation": "portrait",
+  "collectible": "stars",
+  "shopType": "pod_skins",
+  "shopHint": "6 space pod skins (Bubble Pod, Fire Pod, Ice Pod, Shadow Pod, Neon Pod, Crystal Pod). Earn stars flying through ring gaps.",
+  "genre": "reflex-arcade",
+  "mechanic": "tap",
+  "description": "Tiny pod automatically orbits a gas giant on one of four concentric rings. Tap to jump one ring outward; tap again to jump inward. Rotating debris fields appear on specific rings \u2014 jump away before impact. Stars appear on rings briefly \u2014 fly through to collect.",
+  "screens": [
+    "MainMenuScreen",
+    "GameScreen",
+    "GameOverScreen",
+    "ShopScreen",
+    "LeaderboardScreen",
+    "WorldsScreen",
+    "SettingsScreen",
+    "HowToPlayScreen"
+  ],
+  "slug": "ring-jumper",
+  "archetype": "orbit-dash",
+  "buttonStyle": "neon",
+  "font1": "HydrogenWhiskey.otf",
+  "font2": "Orbitron-Regular.ttf",
+  "colors": {
+    "primary": "#40C4FF",
+    "accent": "#FF6D00",
+    "bg": "#000814",
+    "text": "#FFFFFF"
+  },
+  "gameId": "game-888-ring-jumper",
+  "gamePath": "/home/kaliuzhnyi/asocity/projects/game-888-ring-jumper",
+  "packageName": "com.asocity.ringjumper000888"
+}
